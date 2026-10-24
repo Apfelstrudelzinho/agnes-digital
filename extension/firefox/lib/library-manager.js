@@ -64,20 +64,39 @@
         var syncText = (api.i18n && api.i18n.getMessage('btnSyncNew')) || 'Sincronizar Novos';
         var chText   = (api.i18n && api.i18n.getMessage('txtChapters')) || 'Capítulos';
 
-        card.innerHTML =
-          '<img src="' + escapeXml(coverSrc) + '">' +
-          '<div class="lib-card-info">' +
-          '  <h3>' + escapeXml(proj.title || 'Sem título') + '</h3>' +
-          '  <p>' + totalCaps + ' ' + chText + '</p>' +
-          '</div>' +
-          '<div class="lib-card-actions">' +
-          '  <button class="btn-lib-update" data-id="' + escapeXml(proj.id) + '">' + escapeXml(syncText) + '</button>' +
-          '</div>';
+        // Montagem segura dos nós DOM sem innerHTML dinâmico (compliance AMO/Mozilla)
+        var img = document.createElement('img');
+        img.src = coverSrc;
+
+        var infoDiv = document.createElement('div');
+        infoDiv.className = 'lib-card-info';
+
+        var titleEl = document.createElement('h3');
+        titleEl.textContent = proj.title || 'Sem título';
+
+        var pEl = document.createElement('p');
+        pEl.textContent = totalCaps + ' ' + chText;
+
+        infoDiv.appendChild(titleEl);
+        infoDiv.appendChild(pEl);
+
+        var actionsDiv = document.createElement('div');
+        actionsDiv.className = 'lib-card-actions';
+
+        var btn = document.createElement('button');
+        btn.className = 'btn-lib-update';
+        btn.setAttribute('data-id', proj.id);
+        btn.textContent = syncText;
+
+        actionsDiv.appendChild(btn);
+
+        card.appendChild(img);
+        card.appendChild(infoDiv);
+        card.appendChild(actionsDiv);
         fragment.appendChild(card);
       });
 
-      grid.innerHTML = '';
-      grid.appendChild(fragment);
+      grid.replaceChildren(fragment);
 
       document.querySelectorAll('.btn-lib-update').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
@@ -85,7 +104,10 @@
         });
       });
     } catch (e) {
-      grid.innerHTML = '<p>Erro ao carregar banco de dados.</p>';
+      grid.replaceChildren();
+      var errP = document.createElement('p');
+      errP.textContent = 'Erro ao carregar banco de dados.';
+      grid.appendChild(errP);
       if (typeof AgnesLog !== 'undefined') {
         AgnesLog.error('Library', 'Falha ao renderizar biblioteca:', e);
       }

@@ -14,31 +14,35 @@
 self.MdBuilder = (function () {
   'use strict';
 
+  // Tabela de entidades nomeadas mais comuns em texto de novel
+  var HTML_ENTITIES = {
+    '&amp;':   '&',  '&lt;':    '<',  '&gt;':    '>',
+    '&quot;':  '"',  '&#39;':   "'",  '&apos;':  "'",
+    '&nbsp;':  ' ',  '&mdash;': '—',  '&ndash;': '–',
+    '&ldquo;': '"',  '&rdquo;': '"',
+    '&lsquo;': '\u2018', '&rsquo;': '\u2019',
+    '&hellip;':'…',  '&copy;':  '\u00A9',
+    '&reg;':   '\u00AE', '&trade;': '\u2122',
+    '&bull;':  '\u2022', '&middot;':'\u00B7',
+    '&laquo;': '\u00AB', '&raquo;': '\u00BB'
+  };
+
   // ── Decodificador de entidades HTML ──────────────────────────────────────────
-  // Usa textarea para cobrir aspas tipográficas, travessões, etc. sem DOMParser.
+  // Decodifica entidades nomeadas e numéricas sem uso de innerHTML.
   function decodeEntities(str) {
     if (!str || !str.includes('&')) return str;
-    try {
-      const ta = document.createElement('textarea');
-      ta.innerHTML = str;
-      return ta.value;
-    } catch (_e) {
-      return str
-        .replace(/&amp;/g,   '&')
-        .replace(/&lt;/g,    '<')
-        .replace(/&gt;/g,    '>')
-        .replace(/&quot;/g,  '"')
-        .replace(/&#39;/g,   "'")
-        .replace(/&apos;/g,  "'")
-        .replace(/&nbsp;/g,  ' ')
-        .replace(/&mdash;/g, '—')
-        .replace(/&ndash;/g, '–')
-        .replace(/&ldquo;/g, '"')
-        .replace(/&rdquo;/g, '"')
-        .replace(/&lsquo;/g, '\u2018')
-        .replace(/&rsquo;/g, '\u2019')
-        .replace(/&hellip;/g,'…');
-    }
+    // Entidades numericas: &#x160; ou &#160;
+    str = str.replace(/&#x([0-9a-f]+);/gi, function(_, hex) {
+      return String.fromCodePoint(parseInt(hex, 16));
+    });
+    str = str.replace(/&#([0-9]+);/g, function(_, dec) {
+      return String.fromCodePoint(parseInt(dec, 10));
+    });
+    // Entidades nomeadas da tabela
+    str = str.replace(/&[a-z]+;/gi, function(ent) {
+      return HTML_ENTITIES[ent] || ent;
+    });
+    return str;
   }
 
   // ── HTML → Markdown ───────────────────────────────────────────────────────────

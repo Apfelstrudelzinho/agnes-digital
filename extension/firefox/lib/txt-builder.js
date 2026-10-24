@@ -17,38 +17,39 @@ self.TxtBuilder = (function () {
   // Separadores configuráveis -- personalize via options.chapterSeparator ao chamar buildTxt()
   var DEFAULT_SEPARATOR = '\u2500'.repeat(48);
 
+  // Tabela de entidades nomeadas mais comuns em texto de novel
+  var HTML_ENTITIES = {
+    '&amp;':   '&',  '&lt;':    '<',  '&gt;':    '>',
+    '&quot;':  '"',  '&#39;':   "'",  '&apos;':  "'",
+    '&nbsp;':  ' ',  '&mdash;': '\u2014', '&ndash;': '\u2013',
+    '&ldquo;': '\u201C', '&rdquo;': '\u201D',
+    '&lsquo;': '\u2018', '&rsquo;': '\u2019',
+    '&hellip;':'\u2026', '&copy;':  '\u00A9',
+    '&reg;':   '\u00AE', '&trade;': '\u2122',
+    '&bull;':  '\u2022', '&middot;':'\u00B7',
+    '&laquo;': '\u00AB', '&raquo;': '\u00BB'
+  };
+
   /**
-   * Decodifica entidades HTML usando um textarea do browser.
-   * Cobre aspas tipograficas (ldquo), travessoes (mdash), etc.
-   * Evita o uso de DOMParser (mais pesado) para decodificacao simples.
+   * Decodifica entidades HTML para texto plano Unicode sem usar innerHTML.
+   * Evita alertas de segurança em linters de extensões (AMO/Mozilla).
    * @param {string} str
    * @returns {string}
    */
   function decodeEntities(str) {
     if (!str || !str.includes('&')) return str;
-    try {
-      // textarea.value resolve entidades sem executar JS (seguro)
-      var ta = document.createElement('textarea');
-      ta.innerHTML = str;
-      return ta.value;
-    } catch (_e) {
-      // Fallback manual para ambientes sem DOM (testes Node)
-      return str
-        .replace(/&amp;/g,   '&')
-        .replace(/&lt;/g,    '<')
-        .replace(/&gt;/g,    '>')
-        .replace(/&quot;/g,  '"')
-        .replace(/&#39;/g,   "'")
-        .replace(/&apos;/g,  "'")
-        .replace(/&nbsp;/g,  ' ')
-        .replace(/&mdash;/g, '\u2014')
-        .replace(/&ndash;/g, '\u2013')
-        .replace(/&ldquo;/g, '\u201C')
-        .replace(/&rdquo;/g, '\u201D')
-        .replace(/&lsquo;/g, '\u2018')
-        .replace(/&rsquo;/g, '\u2019')
-        .replace(/&hellip;/g, '\u2026');
-    }
+    // Entidades numericas: &#x160; ou &#160;
+    str = str.replace(/&#x([0-9a-f]+);/gi, function(_, hex) {
+      return String.fromCodePoint(parseInt(hex, 16));
+    });
+    str = str.replace(/&#([0-9]+);/g, function(_, dec) {
+      return String.fromCodePoint(parseInt(dec, 10));
+    });
+    // Entidades nomeadas da tabela
+    str = str.replace(/&[a-z]+;/gi, function(ent) {
+      return HTML_ENTITIES[ent] || ent;
+    });
+    return str;
   }
 
   /**

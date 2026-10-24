@@ -7,6 +7,21 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 
 ---
 
+## [1.0.1] - 2026-10-24
+
+### 🛡️ Correções de Segurança e Conformidade (AMO & Manifest)
+
+#### Corrigido (Fixed)
+- **Eliminação de alertas de segurança do linter da Mozilla (AMO):**
+  - `lib/txt-builder.js`: Substituído o uso de elemento temporário `textarea.innerHTML` por decodificação estática e regex de entidades HTML numéricas e nomeadas.
+  - `lib/md-builder.js`: Removida a atribuição de `textarea.innerHTML`, padronizando com decodificação direta de entidades.
+  - `lib/library-manager.js`: Substituída a concatenação de HTML em string via `card.innerHTML` por criação estruturada segura de nós DOM (`document.createElement`, `textContent`, `appendChild` e `replaceChildren`).
+- **Compatibilidade do Manifesto Firefox:**
+  - `extension/firefox/manifest.json`: Atualizado `strict_min_version` para `"142.0"` para alinhar formalmente com os requisitos de suporte da API `declarativeNetRequest` e da propriedade de privacidade `data_collection_permissions`.
+  - Bump de versão para `1.0.1` nos manifestos do Firefox e Chrome.
+
+---
+
 ## [1.0.0] - 2026-10-11
 
 ### 🎉 Lançamento Inicial Oficial (Fase 1)
