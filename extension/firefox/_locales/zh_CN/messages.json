@@ -1,0 +1,140 @@
+{
+  "extName": {
+    "message": "Novels Downloader Studio"
+  },
+  "extDesc": {
+    "message": "下载 EPUB 或 PDF 格式的网络小说和同人小说，支持同步翻译。"
+  },
+  "lblUrl": {
+    "message": "来源网址"
+  },
+  "lblTitle": {
+    "message": "书名"
+  },
+  "lblAuthor": {
+    "message": "作者"
+  },
+  "lblLanguage": {
+    "message": "图书语言"
+  },
+  "lblFilename": {
+    "message": "文件名"
+  },
+  "lblCoverUrl": {
+    "message": "封面网址"
+  },
+  "lblStatus": {
+    "message": "状态"
+  },
+  "lblSynopsis": {
+    "message": "简介"
+  },
+  "lblGenres": {
+    "message": "类型"
+  },
+  "optUnknown": {
+    "message": "未知"
+  },
+  "optOngoing": {
+    "message": "连载中"
+  },
+  "optCompleted": {
+    "message": "已完结"
+  },
+  "chkTranslate": {
+    "message": "翻译章节"
+  },
+  "chkBilingual": {
+    "message": "双语模式"
+  },
+  "btnExport": {
+    "message": "⬇ 编译成书"
+  },
+  "btnCancel": {
+    "message": "✕ 取消"
+  },
+  "btnSelectAll": {
+    "message": "全选"
+  },
+  "btnUnselectAll": {
+    "message": "取消全选"
+  },
+  "btnInvert": {
+    "message": "反选"
+  },
+  "btnReverse": {
+    "message": "倒序"
+  },
+  "btnClearLog": {
+    "message": "清除"
+  },
+  "txtSearch": {
+    "message": "搜索章节..."
+  },
+  "txtStatusIdle": {
+    "message": "空闲"
+  },
+  "txtChapters": {
+    "message": "章"
+  },
+  "txtSpeed": {
+    "message": "章/分钟"
+  },
+  "txtEta": {
+    "message": "剩余时间:"
+  },
+  "tabLibrary": {
+    "message": "📚 我的书库"
+  },
+  "btnCompileNative": {
+    "message": "📖 编译"
+  },
+  "btnCompileTl": {
+    "message": "🌐 编译已翻译"
+  },
+  "btnCompileComic": {
+    "message": "🖼️ 编译漫画"
+  },
+  "lblCoverUpload": {
+    "message": "本地上传"
+  },
+  "lblNoCover": {
+    "message": "无封面"
+  },
+  "lblOutputFormat": {
+    "message": "输出格式："
+  },
+  "titleTlSettings": {
+    "message": "翻译设置"
+  },
+  "lblSourceLang": {
+    "message": "源语言"
+  },
+  "lblTargetLang": {
+    "message": "目标语言"
+  },
+  "lblBilingualDesc": {
+    "message": "生成双语文本（原文 + 译文）"
+  },
+  "thTitle": {
+    "message": "标题"
+  },
+  "thLink": {
+    "message": "链接"
+  },
+  "lblConsole": {
+    "message": "控制台"
+  },
+  "titleSavedNovels": {
+    "message": "本地保存的作品"
+  },
+  "btnRefreshLib": {
+    "message": "刷新"
+  },
+  "btnSyncNew": {
+    "message": "同步新章节"
+  },
+  "optAutoDetect": {
+    "message": "自动检测"
+  }
+}

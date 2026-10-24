@@ -1,0 +1,140 @@
+{
+  "extName": {
+    "message": "Novels Downloader Studio"
+  },
+  "extDesc": {
+    "message": "Téléchargez des web novels et des fanfictions en EPUB ou PDF avec traduction simultanée."
+  },
+  "lblUrl": {
+    "message": "URL Source"
+  },
+  "lblTitle": {
+    "message": "Titre"
+  },
+  "lblAuthor": {
+    "message": "Auteur"
+  },
+  "lblLanguage": {
+    "message": "Langue du Livre"
+  },
+  "lblFilename": {
+    "message": "Nom du Fichier"
+  },
+  "lblCoverUrl": {
+    "message": "URL de Couverture"
+  },
+  "lblStatus": {
+    "message": "Statut"
+  },
+  "lblSynopsis": {
+    "message": "Synopsis"
+  },
+  "lblGenres": {
+    "message": "Genres"
+  },
+  "optUnknown": {
+    "message": "Inconnu"
+  },
+  "optOngoing": {
+    "message": "En Cours"
+  },
+  "optCompleted": {
+    "message": "Terminé"
+  },
+  "chkTranslate": {
+    "message": "Traduire les chapitres"
+  },
+  "chkBilingual": {
+    "message": "Mode Bilingue"
+  },
+  "btnExport": {
+    "message": "⬇ Compiler le Livre"
+  },
+  "btnCancel": {
+    "message": "✕ Annuler"
+  },
+  "btnSelectAll": {
+    "message": "Tout Sélectionner"
+  },
+  "btnUnselectAll": {
+    "message": "Tout Désélectionner"
+  },
+  "btnInvert": {
+    "message": "Inverser la Sélection"
+  },
+  "btnReverse": {
+    "message": "Inverser l'Ordre"
+  },
+  "btnClearLog": {
+    "message": "Effacer"
+  },
+  "txtSearch": {
+    "message": "Rechercher un chapitre..."
+  },
+  "txtStatusIdle": {
+    "message": "Inactif"
+  },
+  "txtChapters": {
+    "message": "chapitres"
+  },
+  "txtSpeed": {
+    "message": "chap/min"
+  },
+  "txtEta": {
+    "message": "Temps restant:"
+  },
+  "tabLibrary": {
+    "message": "📚 Ma Bibliothèque"
+  },
+  "btnCompileNative": {
+    "message": "📖 Compiler"
+  },
+  "btnCompileTl": {
+    "message": "🌐 Compiler Traduit"
+  },
+  "btnCompileComic": {
+    "message": "🖼️ Compiler BD"
+  },
+  "lblCoverUpload": {
+    "message": "Téléverser Fichier"
+  },
+  "lblNoCover": {
+    "message": "Sans Couverture"
+  },
+  "lblOutputFormat": {
+    "message": "Format de Sortie :"
+  },
+  "titleTlSettings": {
+    "message": "Paramètres de Traduction"
+  },
+  "lblSourceLang": {
+    "message": "Langue Source"
+  },
+  "lblTargetLang": {
+    "message": "Langue Cible"
+  },
+  "lblBilingualDesc": {
+    "message": "Générer Texte Bilingue (Original + Traduction)"
+  },
+  "thTitle": {
+    "message": "Titre"
+  },
+  "thLink": {
+    "message": "Lien"
+  },
+  "lblConsole": {
+    "message": "Console"
+  },
+  "titleSavedNovels": {
+    "message": "Romans Enregistrés Localement"
+  },
+  "btnRefreshLib": {
+    "message": "Recharger"
+  },
+  "btnSyncNew": {
+    "message": "Synchroniser Nouveaux"
+  },
+  "optAutoDetect": {
+    "message": "Détection Auto"
+  }
+}

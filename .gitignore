@@ -1,0 +1,30 @@
+# Build artifacts
+dist/
+*.zip
+*.xpi
+*.crx
+
+# Backups e rascunhos temporários
+mycode/
+refator/
+test-ext/
+agnes-digital-documented/
+.rmv/
+.backup_easter_egg/
+webtoepub/
+bugs.md
+instructions.md
+refactoring_plan_by_file.md
+*.backup.zip
+*.tmp
+*.log
+
+# Editor e Sistema Operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node / dependências locais (se houver)
+node_modules/
+package-lock.json

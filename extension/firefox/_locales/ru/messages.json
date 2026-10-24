@@ -1,0 +1,140 @@
+{
+  "extName": {
+    "message": "Novels Downloader Studio"
+  },
+  "extDesc": {
+    "message": "Скачивайте веб-новеллы и фанфики в EPUB или PDF с одновременным переводом."
+  },
+  "lblUrl": {
+    "message": "Исходный URL"
+  },
+  "lblTitle": {
+    "message": "Название"
+  },
+  "lblAuthor": {
+    "message": "Автор"
+  },
+  "lblLanguage": {
+    "message": "Язык книги"
+  },
+  "lblFilename": {
+    "message": "Имя файла"
+  },
+  "lblCoverUrl": {
+    "message": "URL обложки"
+  },
+  "lblStatus": {
+    "message": "Статус"
+  },
+  "lblSynopsis": {
+    "message": "Синопсис"
+  },
+  "lblGenres": {
+    "message": "Жанры"
+  },
+  "optUnknown": {
+    "message": "Неизвестно"
+  },
+  "optOngoing": {
+    "message": "В процессе"
+  },
+  "optCompleted": {
+    "message": "Завершено"
+  },
+  "chkTranslate": {
+    "message": "Переводить главы"
+  },
+  "chkBilingual": {
+    "message": "Двуязычный режим"
+  },
+  "btnExport": {
+    "message": "⬇ Создать книгу"
+  },
+  "btnCancel": {
+    "message": "✕ Отмена"
+  },
+  "btnSelectAll": {
+    "message": "Выбрать все"
+  },
+  "btnUnselectAll": {
+    "message": "Снять выделение"
+  },
+  "btnInvert": {
+    "message": "Инвертировать"
+  },
+  "btnReverse": {
+    "message": "Обратный порядок"
+  },
+  "btnClearLog": {
+    "message": "Очистить"
+  },
+  "txtSearch": {
+    "message": "Поиск главы..."
+  },
+  "txtStatusIdle": {
+    "message": "Ожидание"
+  },
+  "txtChapters": {
+    "message": "глав"
+  },
+  "txtSpeed": {
+    "message": "гл/мин"
+  },
+  "txtEta": {
+    "message": "Осталось:"
+  },
+  "tabLibrary": {
+    "message": "📚 Моя библиотека"
+  },
+  "btnCompileNative": {
+    "message": "📖 Скомпилировать"
+  },
+  "btnCompileTl": {
+    "message": "🌐 Скомпилировать с переводом"
+  },
+  "btnCompileComic": {
+    "message": "🖼️ Скомпилировать комикс"
+  },
+  "lblCoverUpload": {
+    "message": "Загрузить файл"
+  },
+  "lblNoCover": {
+    "message": "Без обложки"
+  },
+  "lblOutputFormat": {
+    "message": "Формат вывода:"
+  },
+  "titleTlSettings": {
+    "message": "Настройки перевода"
+  },
+  "lblSourceLang": {
+    "message": "Исходный язык"
+  },
+  "lblTargetLang": {
+    "message": "Целевой язык"
+  },
+  "lblBilingualDesc": {
+    "message": "Создать двуязычный текст (Оригинал + Перевод)"
+  },
+  "thTitle": {
+    "message": "Название"
+  },
+  "thLink": {
+    "message": "Ссылка"
+  },
+  "lblConsole": {
+    "message": "Консоль"
+  },
+  "titleSavedNovels": {
+    "message": "Сохраненные локально новеллы"
+  },
+  "btnRefreshLib": {
+    "message": "Обновить"
+  },
+  "btnSyncNew": {
+    "message": "Синхронизировать новые"
+  },
+  "optAutoDetect": {
+    "message": "Автоопределение"
+  }
+}

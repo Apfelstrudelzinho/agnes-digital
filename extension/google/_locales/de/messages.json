@@ -1,0 +1,140 @@
+{
+  "extName": {
+    "message": "Novels Downloader Studio"
+  },
+  "extDesc": {
+    "message": "Laden Sie Web-Novels und Fanfics in EPUB oder PDF mit Simultanübersetzung herunter."
+  },
+  "lblUrl": {
+    "message": "Quell-URL"
+  },
+  "lblTitle": {
+    "message": "Romantitel"
+  },
+  "lblAuthor": {
+    "message": "Autor"
+  },
+  "lblLanguage": {
+    "message": "Buchsprache"
+  },
+  "lblFilename": {
+    "message": "Dateiname"
+  },
+  "lblCoverUrl": {
+    "message": "Cover-URL"
+  },
+  "lblStatus": {
+    "message": "Status"
+  },
+  "lblSynopsis": {
+    "message": "Zusammenfassung"
+  },
+  "lblGenres": {
+    "message": "Genres"
+  },
+  "optUnknown": {
+    "message": "Unbekannt"
+  },
+  "optOngoing": {
+    "message": "Laufend"
+  },
+  "optCompleted": {
+    "message": "Abgeschlossen"
+  },
+  "chkTranslate": {
+    "message": "Kapitel übersetzen"
+  },
+  "chkBilingual": {
+    "message": "Zweisprachiger Modus"
+  },
+  "btnExport": {
+    "message": "⬇ Buch kompilieren"
+  },
+  "btnCancel": {
+    "message": "✕ Abbrechen"
+  },
+  "btnSelectAll": {
+    "message": "Alle auswählen"
+  },
+  "btnUnselectAll": {
+    "message": "Auswahl aufheben"
+  },
+  "btnInvert": {
+    "message": "Auswahl umkehren"
+  },
+  "btnReverse": {
+    "message": "Reihenfolge umkehren"
+  },
+  "btnClearLog": {
+    "message": "Löschen"
+  },
+  "txtSearch": {
+    "message": "Kapitel suchen..."
+  },
+  "txtStatusIdle": {
+    "message": "Im Leerlauf"
+  },
+  "txtChapters": {
+    "message": "kapitel"
+  },
+  "txtSpeed": {
+    "message": "kap/min"
+  },
+  "txtEta": {
+    "message": "Verbleibende Zeit:"
+  },
+  "tabLibrary": {
+    "message": "📚 Meine Bibliothek"
+  },
+  "btnCompileNative": {
+    "message": "📖 Kompilieren"
+  },
+  "btnCompileTl": {
+    "message": "🌐 Übersetzt kompilieren"
+  },
+  "btnCompileComic": {
+    "message": "🖼️ Comic kompilieren"
+  },
+  "lblCoverUpload": {
+    "message": "Lokaler Upload"
+  },
+  "lblNoCover": {
+    "message": "Kein Cover"
+  },
+  "lblOutputFormat": {
+    "message": "Ausgabeformat:"
+  },
+  "titleTlSettings": {
+    "message": "Übersetzungseinstellungen"
+  },
+  "lblSourceLang": {
+    "message": "Ausgangssprache"
+  },
+  "lblTargetLang": {
+    "message": "Zielsprache"
+  },
+  "lblBilingualDesc": {
+    "message": "Zweisprachigen Text generieren (Original + Übersetzung)"
+  },
+  "thTitle": {
+    "message": "Titel"
+  },
+  "thLink": {
+    "message": "Link"
+  },
+  "lblConsole": {
+    "message": "Konsole"
+  },
+  "titleSavedNovels": {
+    "message": "Lokal gespeicherte Werke"
+  },
+  "btnRefreshLib": {
+    "message": "Neu laden"
+  },
+  "btnSyncNew": {
+    "message": "Neue synchronisieren"
+  },
+  "optAutoDetect": {
+    "message": "Automatisch erkennen"
+  }
+}

@@ -1,0 +1,236 @@
+<!-- ═════════════════════════════════════════════════════════════════════════════
+PROJECT:     Agnes Digital — Novels Downloader
+Version:     1.0.0
+═════════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels Downloader — Painel de Controle</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="theme-dark">
+  <div class="top-bar">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-i18n="extName" class="tab-btn active" id="btn-tab-extrator">Novels Downloader Studio</button>
+      <button role="tab" aria-selected="false" data-i18n="tabLibrary" class="tab-btn" id="btn-tab-library">📚 Minha Biblioteca</button>
+    </div>
+    <button id="btn-theme-toggle" class="btn-icon" style="margin-right: 15px;" title="Alternar Tema (Claro/Escuro)">☀️</button>
+      <div id="status-indicator" data-i18n="txtStatusIdle">Ocioso</div>
+  </div>
+
+  <main class="container" id="tab-extrator">
+    <!-- FORMULÁRIO DE METADADOS -->
+    <div class="metadata-section">
+      <!-- PAINEL ESQUERDO -->
+      <div class="left-panel">
+        <div class="cover-wrapper" id="cover-thumbnail-box">
+          <div class="cover-empty-state" id="cover-empty-state" style="display: none;">
+            <span style="font-size: 24px;">🚫</span>
+            <p style="font-size: 11px; margin-top: 5px; color: var(--text-muted); text-align: center;" data-i18n="lblNoCover">Sem Capa</p>
+          </div>
+          <img id="img-cover" src="" alt="Miniatura da capa" style="display: none;">
+        </div>
+        
+        <div class="cover-actions">
+          <div class="form-group" style="text-align: left;">
+            <label for="inp-cover-url" data-i18n="lblCoverUrl" style="font-size: 11px;">URL da Capa</label>
+            <input type="text" id="inp-cover-url" placeholder="https://.../capa.jpg">
+          </div>
+          <label for="inp-cover-file" class="btn-cover-upload" data-i18n="lblCoverUpload" title="Carregar capa do computador">Upload Local</label>
+          <input type="file" id="inp-cover-file" accept="image/*" style="display: none;">
+        </div>
+      </div>
+
+      <!-- PAINEL DIREITO -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="inp-url" data-i18n="lblUrl">URL de Origem</label>
+          <input type="text" id="inp-url" readonly placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+          <label for="inp-title" data-i18n="lblTitle">Título da Obra</label>
+          <input type="text" id="inp-title" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="inp-author" data-i18n="lblAuthor">Autor</label>
+          <input type="text" id="inp-author" placeholder="">
+        </div>
+
+        <div class="form-group row-group">
+          <div class="form-group-child">
+            <label for="inp-filename" data-i18n="lblFilename">Nome do Arquivo</label>
+            <input type="text" id="inp-filename" placeholder="nome_do_arquivo">
+          </div>
+          <div class="form-group-child">
+            <label for="sel-status" data-i18n="lblStatus">Status</label>
+            <select id="sel-status">
+              <option value="unknown" data-i18n="optUnknown">Desconhecido</option>
+              <option value="ongoing" data-i18n="optOngoing">Em Andamento</option>
+              <option value="completed" data-i18n="optCompleted">Completa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inp-synopsis" data-i18n="lblSynopsis">Sinopse</label>
+          <textarea id="inp-synopsis" rows="5" placeholder=""></textarea>
+        </div>
+
+
+        <div class="divider"></div>
+
+        <!-- CONTROLES DE AÇÃO -->
+        <div class="action-controls-integrated" style="flex-direction: column; gap: 15px;">
+          
+          <div class="compile-actions" style="display: flex; gap: 10px; width: 100%; justify-content: space-between;">
+            <button id="btn-compile-native" disabled class="btn-compile btn-primary" data-i18n="btnCompileNative" title="Exporta no idioma original">📖 Compilar</button>
+            
+            <div class="btn-group-translate" style="display: flex; flex: 1;">
+              <button id="btn-compile-tl" disabled class="btn-compile-tl btn-primary" data-i18n="btnCompileTl" style="flex: 1; border-top-right-radius: 0; border-bottom-right-radius: 0;">🌐 Compilar Traduzido</button>
+              <button id="btn-tl-settings" disabled class="btn-tl-settings btn-primary" style="border-left: 1px solid rgba(255,255,255,0.2); border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 0 10px;" title="Configurações de Tradução">⚙️</button>
+            </div>
+            
+            <button id="btn-cancel" style="display: none; width: 100%; font-weight: bold;" class="btn-danger" data-i18n="btnCancel">✕ Cancelar Download</button>
+            <button id="btn-compile-comic" disabled class="btn-compile-comic btn-primary" data-i18n="btnCompileComic" title="Extrai apenas as imagens (Mangá/Manhwa)">🖼️ Compilar Quadrinho</button>
+          </div>
+
+          <div class="export-options" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <span style="font-size: 11px; color: var(--text-muted);" data-i18n="lblOutputFormat">Formato de Saída:</span>
+            <select id="sel-format" title="Export Format" style="width: auto; padding: 4px 8px; font-size: 12px; border-radius: 4px;">
+              <option value="epub">📚 EPUB</option>
+              <option value="pdf">📄 PDF</option>
+              <option value="cbz">📦 CBZ</option>
+              <option value="txt">📄 TXT</option>
+              <option value="md">📝 Markdown</option>
+            </select>
+            
+          </div>
+
+        </div>
+
+      </div> <!-- /form-grid -->
+    </div> <!-- /metadata-section -->
+
+    <!-- MODAL DE TRADUÇÃO (Escondido por padrão) -->
+    <div id="modal-tl-settings" class="modal-overlay" style="display: none;">
+      <div class="modal-content">
+        <h3 data-i18n="titleTlSettings">Configurações de Tradução</h3>
+        <div class="form-group">
+          <label data-i18n="lblSourceLang">Idioma de Origem</label>
+          <select id="sel-source-lang">
+            <option value="auto" data-i18n="optAutoDetect">Auto-Detectar</option>
+            <option value="zh">Chinês</option>
+            <option value="ko">Coreano</option>
+            <option value="ja">Japonês</option>
+            <option value="en">Inglês</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="lblTargetLang">Idioma de Saída</label>
+          <select id="sel-target-lang"></select>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="chk-bilingual"> 
+            <span data-i18n="lblBilingualDesc">Gerar Texto Bilíngue (Original + Tradução)</span>
+          </label>
+        </div>
+        <div class="modal-actions" style="margin-top: 20px; text-align: right;">
+          <button id="btn-tl-close" class="btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DE PROGRESSO -->
+    <div id="progress-section" style="display: none;" aria-live="polite" aria-label="Progresso do download">
+      <div class="progress-stats">
+        <span id="stat-chapters">0/0</span>
+        <span id="stat-speed">0</span>
+        <span id="stat-eta">--:--</span>
+      </div>
+      <div class="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <div id="current-task">...</div>
+    </div>
+
+    <!-- TABELA DE CAPÍTULOS -->
+    <div class="chapter-section">
+      <div class="toolbar">
+        <button id="btn-select-all" data-i18n="btnSelectAll">Selecionar Todos</button>
+        <button id="btn-unselect-all" data-i18n="btnUnselectAll">Desmarcar Todos</button>
+        <button id="btn-invert" data-i18n="btnInvert">Inverter Seleção</button>
+        <button id="btn-reverse" data-i18n="btnReverse">Inverter Ordem</button>
+        <input type="text" id="inp-search" data-i18n-placeholder="txtSearch" placeholder="Buscar capítulo...">
+        <span id="chapter-counter">0/0</span>
+      </div>
+      <div class="chapter-list-container">
+        <table id="chapter-table">
+          <thead>
+            <tr>
+              <th width="30"><input type="checkbox" id="chk-all-header" checked></th>
+              <th width="50">#</th>
+              <th data-i18n="thTitle">Título</th>
+              <th data-i18n="thLink">Link</th>
+            </tr>
+          </thead>
+          <tbody id="chapter-list">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CONSOLE DE LOGS -->
+    <div class="log-console">
+      <div class="log-header">
+        <span data-i18n="lblConsole">Console</span>
+        <button id="btn-clear-log" data-i18n="btnClearLog">Limpar</button>
+      </div>
+      <div id="log-output"></div>
+    </div>
+  </main>
+
+  <main class="container" id="tab-library" style="display: none;">
+    <div class="library-header">
+      <h2 data-i18n="titleSavedNovels">Obras Salvas Localmente</h2>
+      <button id="btn-refresh-lib" data-i18n="btnRefreshLib">Recarregar</button>
+    </div>
+    <div id="library-grid" class="library-grid">
+      <!-- Cards da biblioteca vão aqui -->
+    </div>
+  </main>
+  
+  <!-- Libraries -->
+  <script src="../lib/jszip.min.js"></script>
+  <script src="../lib/readability.js"></script>
+  <script src="../lib/jspdf.umd.min.js"></script>
+  <script src="../lib/html2canvas.min.js"></script>
+  <!-- Utilitários Core (carregados antes dos módulos e do dashboard) -->
+  <script src="../lib/agnes-log.js"></script>
+  <script src="../lib/message-types.js"></script>
+  <script src="../lib/db.js"></script>
+  <!-- Core Modules -->
+  <script src="../lib/book-ir.js"></script>
+  <script src="../lib/translator.js"></script>
+  <script src="../lib/epub-builder.js"></script>
+  <script src="../lib/pdf-exporter.js"></script>
+  <script src="../lib/txt-builder.js"></script>
+  <script src="../lib/md-builder.js"></script>
+  <script src="../lib/cbz-builder.js"></script>
+  <script src="../lib/exporter-registry.js"></script>
+  <!-- Módulos de Cifras e Engenharia Reversa -->
+  <script src="../lib/ciphers/cherrymist.js"></script>
+  <script src="../lib/ciphers/fictioneer.js"></script>
+  <!-- Módulos de Extração e Biblioteca -->
+  <script src="../lib/chapter-extractor.js"></script>
+  <script src="../lib/library-manager.js"></script>
+  <!-- Dashboard Controller -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
